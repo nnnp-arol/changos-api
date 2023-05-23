@@ -9,8 +9,17 @@ taskRouter.get("/tasks", async (req, res) => {
 });
 
 taskRouter.post("/task", async (req, res) => {
-  const { ticket, type, description, done, enviroment, dev, jira, sprint } =
-    req.body;
+  const {
+    ticket,
+    type,
+    description,
+    done,
+    enviroment,
+    dev,
+    jira,
+    sprint,
+    jira_state,
+  } = req.body;
   const foundTask = await Task.findOne({ ticket });
   if (foundTask) {
     return res.send("task is already exist");
@@ -24,6 +33,7 @@ taskRouter.post("/task", async (req, res) => {
     dev,
     jira,
     sprint,
+    jira_state,
   });
   await newTask.save();
   res.send("task created successfully");
@@ -39,5 +49,5 @@ taskRouter.put("/task/:id", async (req, res) => {
     { _id: req.params.id },
     { ...req.body }
   );
-  return editedTask;
+  res.send("task updated successfully");
 });

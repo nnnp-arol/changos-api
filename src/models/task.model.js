@@ -12,6 +12,7 @@ const TaskSchema = new Schema(
     dev: { type: String },
     jira: { type: String },
     sprint: { type: String },
+    jira_state: { type: String },
   },
   { timestamps: true, versionKey: false }
 );

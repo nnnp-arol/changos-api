@@ -4,15 +4,16 @@ const { Schema } = mongoose;
 
 const TaskSchema = new Schema(
   {
+    sprint: { type: String },
     ticket: { type: String, required: true },
+    jira: { type: String },
+    jira_state: { type: String },
+    enviroment: { type: String },
     type: { type: String },
+    app: { type: String },
+    dev: { type: String },
     description: { type: String },
     done: { type: Boolean, default: false },
-    enviroment: { type: String },
-    dev: { type: String },
-    jira: { type: String },
-    sprint: { type: String },
-    jira_state: { type: String },
   },
   { timestamps: true, versionKey: false }
 );

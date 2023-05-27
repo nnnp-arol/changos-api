@@ -19,6 +19,7 @@ taskRouter.post("/task", async (req, res) => {
     jira,
     sprint,
     jira_state,
+    app,
   } = req.body;
   const foundTask = await Task.findOne({ ticket });
   if (foundTask) {
@@ -34,6 +35,7 @@ taskRouter.post("/task", async (req, res) => {
     jira,
     sprint,
     jira_state,
+    app,
   });
   await newTask.save();
   res.send("task created successfully");
